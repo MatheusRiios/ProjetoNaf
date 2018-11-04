@@ -63,6 +63,19 @@ module.exports = app => {
             .catch(err => res.status(400).send(err))
     }
 
+    const getDeleteById = (req, res) => {
+        const IDuser = req.params.id;        
+        app.db('users')
+            .where({id: IDuser})
+            .del()
+            .then(_ => res.status(204).json({
+                msg: 'Usuario deletado com sucesso'
+            }))
+            .catch(err => res.status(404).send(err))
 
-    return { save, get, getUserByID }
+    }
+
+
+
+    return { save, get, getUserByID, getDeleteById }
 }
