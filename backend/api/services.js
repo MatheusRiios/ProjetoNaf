@@ -41,5 +41,28 @@ module.exports = app =>{
             .catch(err => res.status(500).send(err))
     }
 
-    return { save, get}
+    const getServicesByID = (req, res) => {
+        const services = req.params.id
+        app.db('services')
+            .select('id', 'name', 'listadocs')
+            .where({ id: services })
+            .first()
+            .then(services => res.json(services))
+            .catch(err => res.status(400).send(err))
+    }
+
+    const getDeleteById = (req, res) => {
+        const IDservices = req.params.id;        
+        app.db('services')
+            .where({id: IDservices})
+            .del()
+            .then(_ => res.status(204).json({
+                msg: 'Serviço deletado com sucesso'
+            }))
+            .catch(err => res.status(404).send(err))
+
+    }
+
+
+    return { save, get, getServicesByID ,getDeleteById }
 }

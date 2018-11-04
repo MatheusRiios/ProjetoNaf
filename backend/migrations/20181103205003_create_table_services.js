@@ -1,9 +1,9 @@
 
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable('services', agenda => {
-        services.increments('id').primary()
-        services.string('name').notNull()
-        services.string('listadocs').notNull()
+    return knex.schema.createTable('services', table => {
+        table.increments('id').primary()
+        table.string('name').notNull()
+        table.string('listadocs').notNull()
     })
 };
 

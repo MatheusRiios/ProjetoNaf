@@ -1,4 +1,5 @@
 // Update with your config settings.
+var dados = require ('./data.js');
 
 module.exports = {
 
@@ -6,8 +7,8 @@ module.exports = {
     connection: {
       database: 'naf',
       user:     'postgres',
-      password: '@300Nascimento'
-    },
+      password: dados.mensagem
+},
     pool: {
       min: 2,
       max: 10
