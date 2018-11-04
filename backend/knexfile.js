@@ -1,5 +1,5 @@
 // Update with your config settings.
-var dados = require ('./data.js');
+var dados = require ('./banco/data.js');
 
 module.exports = {
 
